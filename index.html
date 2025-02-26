@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>GitHub Pages Flashing Box</title>
+  <title>GitHub Pages Flashing Moving Box</title>
   <style>
     body {
       display: flex;
@@ -9,7 +9,7 @@
       align-items: center;
       height: 100vh;
       margin: 0;
-      background-color: #f0f0f0; /* Light background */
+      background-color: #f0f0f0;
     }
 
     .flashing-box {
@@ -22,9 +22,9 @@
       font-size: 48px;
       font-weight: bold;
       color: black;
-      position: relative;
+      position: absolute; /* Changed to absolute for movement */
       overflow: hidden;
-      animation: flash 4s linear infinite;
+      animation: moveBox 10s linear infinite, flash 4s linear infinite; /* Both animations */
       background-size: 200% 200%;
     }
 
@@ -42,7 +42,6 @@
         black 10px,
         black 20px
       );
-      background-size: 200% 200%;
     }
 
     @keyframes flash {
@@ -51,6 +50,29 @@
       }
       100% {
         background-position: 100% 100%;
+      }
+    }
+
+    @keyframes moveBox {
+      0% {
+        left: 0;
+        top: 0;
+      }
+      25% {
+        left: 80%;
+        top: 0;
+      }
+      50% {
+        left: 80%;
+        top: 80%;
+      }
+      75% {
+        left: 0;
+        top: 80%;
+      }
+      100% {
+        left: 0;
+        top: 0;
       }
     }
 
