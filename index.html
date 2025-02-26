@@ -1,1 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>GitHub Pages Flashing Box</title>
+  <style>
+    body {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+      background-color: #f0f0f0; /* Light background */
+    }
 
+    .flashing-box {
+      width: 200px;
+      height: 100px;
+      background-color: orange;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 48px;
+      font-weight: bold;
+      color: black;
+      position: relative;
+      overflow: hidden;
+      animation: flash 4s linear infinite;
+      background-size: 200% 200%;
+    }
+
+    .flashing-box::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 10px,
+        black 10px,
+        black 20px
+      );
+      background-size: 200% 200%;
+    }
+
+    @keyframes flash {
+      0% {
+        background-position: 0 0;
+      }
+      100% {
+        background-position: 100% 100%;
+      }
+    }
+
+    .flashing-text {
+      position: relative;
+      z-index: 1;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="flashing-box">
+    <span class="flashing-text">GO!</span>
+  </div>
+
+</body>
+</html>
